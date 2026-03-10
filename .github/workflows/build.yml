@@ -1,0 +1,54 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Install & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: site/nextjs-terminal-site/package-lock.json
+
+      - name: Load configuration
+        run: source scripts/load-config.sh
+        shell: bash
+
+      - name: Install dependencies
+        working-directory: site/nextjs-terminal-site
+        run: npm ci
+
+      - name: Build static site
+        working-directory: site/nextjs-terminal-site
+        env:
+          NEXT_PUBLIC_GITHUB_REPO: ${{ vars.NEXT_PUBLIC_GITHUB_REPO || 'yigang666/yigang666.github.io' }}
+          NEXT_PUBLIC_GITHUB_API_BASE: ${{ vars.NEXT_PUBLIC_GITHUB_API_BASE || 'https://api.github.com' }}
+          NEXT_PUBLIC_PLAUSIBLE_ENDPOINT: ${{ vars.NEXT_PUBLIC_PLAUSIBLE_ENDPOINT || 'https://plausible.io' }}
+          NEXT_PUBLIC_PLAUSIBLE_DOMAIN: ${{ vars.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || '' }}
+          NEXT_PUBLIC_DASHBOARD_REFRESH_SECONDS: '60'
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-out
+          path: site/nextjs-terminal-site/out/
+          retention-days: 1
+          if-no-files-found: error

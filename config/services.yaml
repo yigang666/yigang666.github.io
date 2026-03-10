@@ -1,0 +1,11 @@
+services:
+  github:
+    repo: yigang666/yigang666.github.io
+    api_base: https://api.github.com
+  deployment:
+    platform: github_pages
+  analytics:
+    provider: plausible
+    endpoint: https://plausible.io
+  dashboard:
+    refresh_interval_seconds: 60
