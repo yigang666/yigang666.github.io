@@ -9,16 +9,16 @@ export default function Document() {
       <Head>
         <meta charSet="utf-8" />
         <meta name="description" content="Yigang Li — DevOps Engineer portfolio" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#0a0a0a" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="preload"
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
           as="style"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
           rel="stylesheet"
         />
         {plausibleDomain && (
@@ -29,7 +29,7 @@ export default function Document() {
           />
         )}
       </Head>
-      <body className="bg-black">
+      <body style={{ background: '#0a0a0a' }}>
         <Main />
         <NextScript />
       </body>
