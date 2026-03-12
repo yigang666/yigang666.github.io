@@ -10,6 +10,8 @@ export default function Document() {
         <meta charSet="utf-8" />
         <meta name="description" content="Yigang Li — DevOps Engineer portfolio" />
         <meta name="theme-color" content="#0a0a0a" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="alternate icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
