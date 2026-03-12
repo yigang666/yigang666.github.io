@@ -99,6 +99,18 @@ tech: Go, Docker, Kubernetes
 
 Set `status: INTERNAL` and omit `url:` for proprietary projects.
 
+### Add a certification with a verification link
+
+Under `## resume` → `### skills` → `#### certifications`, use `Name | URL` format:
+
+```markdown
+#### certifications
+- RHCSA | https://rhtapps.redhat.com/verify?certId=250-058-419
+- AZ-900
+```
+
+Certifications with a URL render as clickable badges. Without `| URL` they render as plain badges.
+
 ### Add a blog post
 
 Under `## blog`, add a `###` block:

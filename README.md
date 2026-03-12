@@ -1,6 +1,6 @@
 # yigang666 — Personal Portfolio
 
-A bilingual (EN/ZH) personal portfolio website for Yigang Li, DevOps Engineer based in Singapore.
+A bilingual (EN/ZH) personal portfolio website for Yigang Li, Software Engineer based in Singapore.
 Built with Next.js static export and deployed to GitHub Pages.
 
 **Live:** https://yigang666.github.io

@@ -8,7 +8,7 @@
 ## Project Overview
 
 **What it is:**
-A bilingual (EN/ZH) personal portfolio website for a DevOps engineer, built as a fully static site deployed to GitHub Pages. It covers five pages: About, Resume, Projects, Blog, and Contact.
+A bilingual (EN/ZH) personal portfolio website for a Software Engineer, built as a fully static site deployed to GitHub Pages. It covers five pages: About, Resume, Projects, Blog, and Contact.
 
 **Tech stack at a glance:**
 
