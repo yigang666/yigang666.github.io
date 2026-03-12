@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import type { GetStaticProps, NextPage } from 'next';
-import { parseContent, getContentPath, type ResumeSection, type ContactData } from '../lib/parseContent';
+import { parseContent, getContentPath, type ResumeSection, type ContactData, type Certification } from '../lib/parseContent';
 import { useLang, t } from '../lib/i18n';
 
 interface ResumePageProps {
@@ -104,9 +104,24 @@ const ResumePage: NextPage<ResumePageProps> = ({ resume, contact }) => {
             <div>
               <p className="text-[#555] text-xs uppercase tracking-wider mb-3">{T.certifications}</p>
               <div className="flex flex-wrap gap-2">
-                {skills.certifications.map(s => (
-                  <span key={s} className="bg-[#111] border border-[#19c37d]/30 text-[#19c37d] text-xs px-3 py-1.5 font-mono">{s}</span>
-                ))}
+                {skills.certifications.map((cert: Certification) =>
+                  cert.url ? (
+                    <a
+                      key={cert.name}
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-[#111] border border-[#19c37d]/30 text-[#19c37d] text-xs px-3 py-1.5 font-mono hover:bg-[#19c37d]/10 transition-colors flex items-center gap-1"
+                    >
+                      {cert.name}
+                      <span className="text-[#19c37d]/60">↗</span>
+                    </a>
+                  ) : (
+                    <span key={cert.name} className="bg-[#111] border border-[#19c37d]/30 text-[#19c37d] text-xs px-3 py-1.5 font-mono">
+                      {cert.name}
+                    </span>
+                  )
+                )}
               </div>
             </div>
             <div>

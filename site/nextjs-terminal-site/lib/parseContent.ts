@@ -40,12 +40,17 @@ export interface EducationEntry {
   period: string;
 }
 
+export interface Certification {
+  name: string;
+  url?: string;
+}
+
 export interface ResumeSection {
   experience: ExperienceEntry[];
   education: EducationEntry[];
   skills: {
     technical: string[];
-    certifications: string[];
+    certifications: Certification[];
     languages: string[];
   };
 }
@@ -114,6 +119,20 @@ function getBullets(lines: string[]): string[] {
     .map(l => l.trim().slice(2).trim());
 }
 
+/** Certifications: "- Name" or "- Name | https://url" */
+function getCertifications(lines: string[]): Certification[] {
+  return lines
+    .filter(l => l.trim().startsWith('- ') && !l.trim().startsWith('- **'))
+    .map(l => {
+      const text = l.trim().slice(2).trim();
+      const pipeIdx = text.indexOf(' | ');
+      if (pipeIdx !== -1) {
+        return { name: text.slice(0, pipeIdx).trim(), url: text.slice(pipeIdx + 3).trim() };
+      }
+      return { name: text };
+    });
+}
+
 /** Chinese bullets: lines starting with "zh- " */
 function getBulletsZh(lines: string[]): string[] {
   return lines
@@ -177,7 +196,7 @@ function parseResume(lines: string[]): ResumeSection {
   const skillSections = splitBySections(sub['skills'] ?? [], 4);
   const skills = {
     technical: getBullets(skillSections['technical'] ?? []),
-    certifications: getBullets(skillSections['certifications'] ?? []),
+    certifications: getCertifications(skillSections['certifications'] ?? []),
     languages: getBullets(skillSections['languages'] ?? []),
   };
 

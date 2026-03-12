@@ -94,7 +94,7 @@ period: July 2016 – May 2020
 - SQL
 
 #### certifications
-- RHCSA
+- RHCSA | https://rhtapps.redhat.com/verify?certId=250-058-419
 
 #### languages
 - English (Native)
