@@ -5,8 +5,8 @@
 ## about
 
 name: Yigang Li
-role: DevOps Engineer
-role_zh: DevOps 工程师
+role: Software Engineer
+role_zh: 软件工程师
 location: Singapore
 location_zh: 新加坡
 company: CrimsonLogic Pte Ltd
