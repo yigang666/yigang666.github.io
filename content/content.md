@@ -41,7 +41,7 @@ bio_zh: 专注基础设施稳定性、CI/CD 自动化与应用性能监控的工
 
 ## contact
 
-email: yigang.li.2016@sis.smu.edu.sg
+email: lyg19960729@gmail.com
 phone: +65 8839 5081
 linkedin: https://www.linkedin.com/in/yigang-li
 github: https://github.com/yigang666
