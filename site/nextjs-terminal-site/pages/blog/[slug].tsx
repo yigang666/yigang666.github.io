@@ -7,13 +7,15 @@ import { useLang, t } from '../../lib/i18n';
 
 interface ArticlePageProps {
   post: BlogPost;
-  html: string;
+  htmlEn: string;
+  htmlZh: string;
 }
 
-const ArticlePage: NextPage<ArticlePageProps> = ({ post, html }) => {
+const ArticlePage: NextPage<ArticlePageProps> = ({ post, htmlEn, htmlZh }) => {
   const { lang } = useLang();
   const T = t[lang].blog;
   const title = lang === 'zh' ? (post.title_zh || post.title) : post.title;
+  const html = lang === 'zh' ? htmlZh : htmlEn;
 
   return (
     <>
@@ -68,7 +70,7 @@ export const getStaticProps: GetStaticProps<ArticlePageProps> = async ({ params 
   const content = parseContent(getContentPath());
   const post = content.blog.find(p => p.slug === slug);
   if (!post || !post.hasBody) return { notFound: true };
-  return { props: { post, html: getArticleHtml(slug) } };
+  return { props: { post, htmlEn: getArticleHtml(slug, 'en'), htmlZh: getArticleHtml(slug, 'zh') } };
 };
 
 export default ArticlePage;

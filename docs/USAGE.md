@@ -148,6 +148,19 @@ The list page then shows a "Read full article" link and the title links to
 without `slug:` (or without a matching file) stay summary-only, so older
 posts need no changes.
 
+### Bilingual article bodies
+
+The language toggle switches the article body too. Body files follow this
+convention:
+
+- `content/blog/<slug>.md` — default body (Chinese for current articles).
+- `content/blog/<slug>.en.md` — English body, shown when the site language
+  is English. `content/blog/<slug>.zh.md` works the same way for Chinese.
+
+If a translation file is missing, the page falls back to the default body in
+both languages, so a Chinese-only article still reads instead of breaking.
+Write both files when an article should read fully in both languages.
+
 ### Update personal info
 
 Edit the `key: value` fields under `## about` or `## contact` directly.
