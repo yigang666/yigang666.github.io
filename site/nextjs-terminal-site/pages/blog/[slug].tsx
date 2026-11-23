@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { parseContent, getContentPath, type BlogPost } from '../../lib/parseContent';
-import { getArticleHtml, getArticleSlugs } from '../../lib/articles';
+import { getArticleHtml } from '../../lib/articles';
 import { useLang, t } from '../../lib/i18n';
 
 interface ArticlePageProps {
@@ -56,12 +56,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = content.blog
     .filter(post => post.slug && post.hasBody)
     .map(post => ({ params: { slug: post.slug as string } }));
-  // Also cover body files not yet listed in content.md (listed entries take precedence for metadata).
-  for (const slug of getArticleSlugs()) {
-    if (!paths.some(p => p.params.slug === slug)) {
-      // No metadata entry: skip — detail pages need a content.md entry.
-    }
-  }
   return { paths, fallback: false };
 };
 
