@@ -127,6 +127,14 @@ tech: Dynatrace, Java, SQL, Linux
 
 ## blog
 
+### Turning AI Conversations into Articles That Last
+title_zh: 把和 AI 的对话，变成能留下的文章
+slug: why-i-write
+date: 2026-11-23
+tags: AI, Writing, Blog
+summary: Why this blog now publishes full articles distilled from conversations with AI — and how a chat becomes a post.
+summary_zh: 为什么这个博客开始把和 AI 的对话沉淀成完整文章，以及一次对话是怎么变成一篇文章的。
+
 ### Setting Up Dynatrace APM for Java Microservices
 title_zh: 为 Java 微服务配置 Dynatrace APM
 date: 2024-11-15

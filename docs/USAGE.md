@@ -124,6 +124,30 @@ summary: English summary sentence.
 summary_zh: 中文摘要。
 ```
 
+### Add a full article (readable in full)
+
+A blog entry is summary-only unless it links to a full article body:
+
+1. Create the body file `content/blog/<slug>.md` — plain Markdown, optional
+   frontmatter (`title:` / `date:`) is stripped at build time.
+2. Add a `slug:` line to the entry under `## blog` in `content/content.md`,
+   matching the file name without `.md`:
+
+```markdown
+### Your Post Title in English
+title_zh: 中文标题
+slug: your-post-slug
+date: 2025-03-15
+tags: DevOps, Linux, Tag3
+summary: English summary sentence.
+summary_zh: 中文摘要。
+```
+
+The list page then shows a "Read full article" link and the title links to
+`/blog/<slug>/`, rendered from the Markdown file at build time. Entries
+without `slug:` (or without a matching file) stay summary-only, so older
+posts need no changes.
+
 ### Update personal info
 
 Edit the `key: value` fields under `## about` or `## contact` directly.

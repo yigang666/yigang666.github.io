@@ -42,6 +42,66 @@
   animation: pageEnter 0.18s ease-out both;
 }
 
+/* Full article body (rendered Markdown on /blog/[slug]) */
+.article-body {
+  color: #d4d4d4;
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+.article-body h2 {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 2.2em 0 0.8em;
+  line-height: 1.4;
+}
+.article-body h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.8em 0 0.6em;
+}
+.article-body p { margin: 0 0 1.1em; }
+.article-body ul, .article-body ol { margin: 0 0 1.1em; padding-left: 1.4em; }
+.article-body li { margin-bottom: 0.4em; }
+.article-body li::marker { color: #555; }
+.article-body a { color: #19c37d; text-decoration: none; }
+.article-body a:hover { text-decoration: underline; }
+.article-body strong { color: #fff; }
+.article-body code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.85em;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+.article-body pre {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 8px;
+  padding: 1em 1.2em;
+  overflow-x: auto;
+  margin: 0 0 1.2em;
+}
+.article-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+}
+.article-body blockquote {
+  border-left: 3px solid #19c37d;
+  margin: 0 0 1.1em;
+  padding: 0.2em 0 0.2em 1em;
+  color: #a0a0a0;
+}
+.article-body hr {
+  border: none;
+  border-top: 1px solid #1e1e1e;
+  margin: 2em 0;
+}
+
 @keyframes pageEnter {
   from {
     opacity: 0;

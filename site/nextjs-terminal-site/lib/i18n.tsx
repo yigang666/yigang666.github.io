@@ -72,6 +72,8 @@ export const t = {
     blog: {
       title: 'Blog',
       subtitle: 'Writing on DevOps, Linux, and infrastructure engineering.',
+      read_full: 'Read full article',
+      back_to_blog: 'Back to Blog',
     },
     contact: {
       title: 'Contact',
@@ -115,6 +117,8 @@ export const t = {
     blog: {
       title: '博客',
       subtitle: '关于 DevOps、Linux 和基础设施工程的技术文章。',
+      read_full: '阅读全文',
+      back_to_blog: '返回博客',
     },
     contact: {
       title: '联系我',

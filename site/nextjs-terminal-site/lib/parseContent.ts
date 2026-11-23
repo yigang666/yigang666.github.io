@@ -71,6 +71,10 @@ export interface BlogPost {
   tags: string[];
   summary: string;
   summary_zh: string;
+  /** URL slug for the full article. Null when the post is summary-only. */
+  slug: string | null;
+  /** True when content/blog/<slug>.md exists and the post links to a full article. */
+  hasBody: boolean;
 }
 
 export interface SiteContent {
@@ -223,6 +227,8 @@ function parseBlog(lines: string[]): BlogPost[] {
   const entries = splitBySections(lines, 3);
   return Object.entries(entries).map(([title, el]) => {
     const tagsVal = getValue(el, 'tags');
+    const slugVal = getValue(el, 'slug');
+    const slug = slugVal || null;
     return {
       title,
       title_zh: getValue(el, 'title_zh'),
@@ -230,6 +236,8 @@ function parseBlog(lines: string[]): BlogPost[] {
       tags: tagsVal ? tagsVal.split(',').map(t => t.trim()) : [],
       summary: getValue(el, 'summary'),
       summary_zh: getValue(el, 'summary_zh'),
+      slug,
+      hasBody: slug ? fs.existsSync(path.join(getBlogDir(), `${slug}.md`)) : false,
     };
   });
 }
@@ -252,4 +260,9 @@ export function parseContent(filePath: string): SiteContent {
 
 export function getContentPath(): string {
   return path.join(process.cwd(), '..', '..', 'content', 'content.md');
+}
+
+/** Directory holding full article bodies: content/blog/<slug>.md */
+export function getBlogDir(): string {
+  return path.join(process.cwd(), '..', '..', 'content', 'blog');
 }
