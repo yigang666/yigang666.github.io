@@ -137,6 +137,7 @@ summary_zh: 为什么这个博客开始把和 AI 的对话沉淀成完整文章�
 
 ### Setting Up Dynatrace APM for Java Microservices
 title_zh: 为 Java 微服务配置 Dynatrace APM
+slug: dynatrace-apm-java
 date: 2024-11-15
 tags: Dynatrace, Java, Monitoring, APM
 summary: A practical guide to instrumenting Java applications with Dynatrace OneAgent — covering auto-discovery, custom dashboards, and SLA alerting.
@@ -144,6 +145,7 @@ summary_zh: 使用 Dynatrace OneAgent 对 Java 应用进行埋点的实践指南
 
 ### RHCSA Study Notes: Key Concepts for Red Hat Certification
 title_zh: RHCSA 学习笔记：红帽认证核心知识点
+slug: rhcsa-study-notes
 date: 2024-09-02
 tags: Linux, RHCSA, Red Hat, Certification
 summary: Notes from preparing for the RHCSA exam — systemd, SELinux, storage management, and user/group administration on RHEL.
@@ -151,6 +153,7 @@ summary_zh: RHCSA 考试备考笔记，涵盖 systemd、SELinux、存储管理�
 
 ### Building a CI/CD Pipeline for Static Sites on GitHub Actions
 title_zh: 使用 GitHub Actions 为静态网站搭建 CI/CD 流水线
+slug: cicd-github-actions
 date: 2024-06-20
 tags: CI/CD, GitHub Actions, Next.js, DevOps
 summary: Step-by-step walkthrough of creating a build, test, and deploy pipeline for a Next.js static export site using GitHub Actions and GitHub Pages.
